@@ -6,7 +6,7 @@
 /*   By: rlardere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 16:39:07 by rlardere          #+#    #+#             */
-/*   Updated: 2018/11/23 16:42:13 by rlardere         ###   ########.fr       */
+/*   Updated: 2018/12/19 14:33:22 by rlardere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static	int		ft_count(const char *s)
 	return (count);
 }
 
-char	*ft_strtrim(char const *s)
+char			*ft_strtrim(char const *s)
 {
 	int len;
 	int i;

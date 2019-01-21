@@ -37,11 +37,7 @@ static int	read_line(char **buff1, char **buff2, char **line, char **nextline, i
 			*nextline = ft_strdup(*buff1);
 		}
 		else
-		{
 			*nextline[0] = '\0';
-			tmp = tmp * 2;
-		}
-
 	}
 	while (tmp == BUFF_SIZE)
 	{
@@ -89,59 +85,14 @@ int	get_next_line(int fd, char **line)
 	return (tmp);
 }
 
-int				main(void)
-{
-	char		*line;
-	int			fd;
-	int			ret;
-	int			count_lines;
-	char		*filename;
-	int			errors;
-
-	filename = "gnl3_3.txt";
-	fd = open(filename, O_RDONLY);
-	if (fd > 2)
-	{
-		count_lines = 0;
-		errors = 0;
-		line = NULL;
-		while ((ret = get_next_line(fd, &line)) > 0)
-		{
-			printf("count lines = %d\n", count_lines);
-			if (count_lines == 0 && strcmp(line, "1234567890abcde") != 0)
-				errors++;
-			if (count_lines == 1 && strcmp(line, "fghijklmnopqrst") != 0)
-				errors++;
-			if (count_lines == 2 && strcmp(line, "edcba0987654321") != 0)
-				errors++;
-			if (count_lines == 3 && strcmp(line, "tsrqponmlkjihgf") != 0)
-				errors++;
-			count_lines++;
-			printf("line = %s\n", line);
-			if (count_lines > 50)
-				break ;
-		}
-		close(fd);
-		if (count_lines != 4)
-			printf("-> must have returned '1' four times instead of %d time(s)\n", count_lines);
-		if (errors > 0)
-			printf("-> must have read \"1234567890abcde\", \"fghijklmnopqrst\", \"edcba0987654321\" and \"tsrqponmlkjihgf\"\n");
-		if (count_lines == 4 && errors == 0)
-			printf("OK\n");
-	}
-	else
-		printf("An error occured while opening file %s\n", filename);
-	return (0);
-}
-
 ///////////// MAIN INITIAL
-/*int     main(int argc, char **argv)
+int     main(int argc, char **argv)
   {
   int fd;
   char *line;
   int tmp;
   tmp = 1;
-  fd = open("./gnl7_2.txt", O_RDONLY);
+  fd = open("./test", O_RDONLY);
   if (fd == -1)
   {
   printf("OPEN ERROR\n");
@@ -169,7 +120,7 @@ printf("ERROR IN GNL\n");
 
 close(fd);
 return (0);
-}*/
+}
 
 
 //////////////////TEST 20

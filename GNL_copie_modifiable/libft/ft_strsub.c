@@ -12,7 +12,6 @@
 
 #include <string.h>
 #include <stdlib.h>
-#include "libft.h"
 
 char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
@@ -22,7 +21,7 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 	if (s == NULL)
 		return (NULL);
 	count = -1;
-	if (!(copy = ft_memalloc(sizeof(char*) * (len + 1))))
+	if (!(copy = (char*)malloc(sizeof(char) * (len + 1))))
 		return (0);
 	while (++count < (int)len)
 		copy[count] = s[count + start];
